@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llmcost"
+version = "0.1.0"
+description = "A command-line tool that calls Claude, caches answers, and reports token cost."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["anthropic"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy"]
+
+[project.scripts]
+llmcost = "llmcost.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llmcost"]
+
+[tool.ruff]
+line-length = 100
